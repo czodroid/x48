@@ -1,45 +1,75 @@
-Summary:   	x48 is an HP 48 GX emulator
-Name:      	x48
-Version:   	@VERSION@
-Release:  	1
+Name:		x48
+Summary:	HP 48 SX emulator
+Version:	@VERSION@
+Release:	0
 License:	GPL
-Group:     	Applications/Math
-URL:            http://developer.berlios.de/projects/x48/
-BuildRoot: 	%{_tmppath}/%{name}-%{version}-root
-Requires:  	libX11  libXext  readline
-BuildRequires:  autoconf libX11-devel libXext-devel readline-devel
-BuildRequires:  libXt-devel
-
-Source:         http://download.berlios.de/x48/%{name}-%{version}.tar.gz
+Group:		Sciences/Mathematics
+URL:		http://x48.berlios.de/
+Source0:	http://downloads.sourceforge.net/project/x48.berlios/%{name}-%{version}.tar.bz2
+Source1:    x48.png
+BuildRequires:	readline-devel
+BuildRequires:	libX11-devel libXt-devel
+#BuildRequires:	x11-util-cf-files
+BuildRequires:	ncurses-devel
+Requires:  	readline
+#Requires:  	x48-data
 
 %description
- This is an emulator of the HP 48 SX and GX calculator.
- Romdumps are available from http://x48.berlios.de/
-
-%define x11_app_defaults_dir %(pkg-config --variable appdefaultdir xt)
+This is an emulator of the HP 48 SX and GX calculator.
+Romdumps are available from http://x48.berlios.de/
 
 %prep
-%setup -q
+%setup -q -c
 
 %build
-%configure \
-	--prefix=/usr
-make %{?_smp_mflags}
+./autogen.sh
+%configure --with-x --prefix=/usr
+make
 
 %install
+rm -rf $RPM_BUILD_ROOT
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}
+mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications/
+
+cat << EOF > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=x48 -rom /usr/share/x48/rom
+Name=x48
+Icon=x48
+Comment=HP48 Emulator
+Categories=Office;
+EOF
+
+install -Dm644 %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/pixmaps/%{name}.png
+
+cat > README.urpmi << EOF
+x48 needs a rom to function, so please read the README to see how to dump it
+from your HP48 or just use the rpm x48-gxrom or x48-sxrom from plf.
+If you dump the rom, please put it in the /usr/share/x48 directory.
+***
+The first time you launch x48, it will copy the rom to ~/.hp48.
+So if you like to change from sx to gx rom, please remove this directory first
+EOF
+
 make DESTDIR=$RPM_BUILD_ROOT install
 
-%clean
-rm -rf $RPM_BUILD_ROOT 
-
 %files
-%defattr(-,root,root,-)
-%doc	README
-%{_bindir}/x48
-%{_bindir}/dump2rom
+%doc README README.urpmi
+#%{_sysconfdir}/X11/app-defaults/X48
 %{_bindir}/checkrom
+%{_bindir}/dump2rom
 %{_bindir}/mkcard
-%{_mandir}/man1/*
-%{x11_app_defaults_dir}/X48
+%{_bindir}/x48
+%{_datadir}/%{name}
+%{_datadir}/X11/app-defaults/X48
+%{_mandir}/man1/x48.*
+%{_datadir}/applications/x48.desktop
+%{_datadir}/pixmaps/%{name}.png
 
+%clean
+rm -rf $RPM_BUILD_ROOT
 
+%changelog
+* Mon Aug 06 2019 <czo@free.fr> - 0.6.5
+- version update

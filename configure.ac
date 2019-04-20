@@ -1,6 +1,6 @@
 
 m4_include([version.m4])
-AC_INIT([x48],[VERSION_NUMBER],[x48-bugs@gam3.net])
+AC_INIT([x48],[VERSION_NUMBER],[czo@free.fr])
 
 AC_COPYRIGHT([Copyright (c) 2006-2010 G. Allen Morris III])
 AC_CANONICAL_TARGET
@@ -97,7 +97,7 @@ AC_DEFINE([PATCHLEVEL], _PATCHLEVEL, [The patch level])
 
 
 AC_DEFINE_UNQUOTED([COMPILE_TIME], "`date`", [Date program was compiled])
-AC_DEFINE([COMPILE_BY], ["G. Allen Morris III"], [Name of person that compiled this program])
+AC_DEFINE([COMPILE_BY], ["czo@free.fr"], [Name of person that compiled this program])
 AC_DEFINE([COMPILE_VERSION], [0], [description])
 
 # Checks for library functions.

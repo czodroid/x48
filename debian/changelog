@@ -1,3 +1,10 @@
+x48 (0.6.5) unstable; urgency=low
+
+  * New release
+
+ -- Czo <czo@free.fr>  Fri, 19 Apr 2019 22:43:23 -0200
+
+
 x48 (0.6.4) unstable; urgency=low
 
   * Default to throttling speed only when key-pressed
