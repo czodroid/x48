@@ -695,7 +695,7 @@ decode_group_1()
   }
 }
 
-inline int
+static inline int
 #ifdef __FunctionProto__
 decode_8_thru_f(int op1)
 #else
@@ -1965,7 +1965,7 @@ int op1;
   }
 }
 
-inline int
+int
 #ifdef __FunctionProto__
 step_instruction(void)
 #else
@@ -2214,7 +2214,7 @@ step_instruction()
   return stop;
 }
 
-inline void
+void
 #ifdef __FunctionProto__
 schedule(void)
 #else

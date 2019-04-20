@@ -167,6 +167,11 @@ typedef struct keypad_t {
 keypad_t  keypad;
 color_t  *colors;
 
+//czo
+//  { "lcd_col", 202, 221, 92, 255, 205,
+//  { "pad", 90, 64, 64, 0, 73,
+//  { "disp_pad", 124, 94, 67, 0, 99,
+
 color_t colors_sx[] = {
   { "white", 255, 255, 255, 255, 255,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
@@ -180,13 +185,13 @@ color_t colors_sx[] = {
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "but_bot", 76, 65, 65, 0, 69,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "lcd_col", 202, 221, 92, 255, 205,
+  { "lcd_col", 219, 219, 219, 255, 205,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "pix_col", 0, 0, 128, 0, 20,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "pad_top", 109, 78, 78, 0, 88,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "pad", 90, 64, 64, 0, 73,
+  { "pad", 90, 70, 70, 0, 73,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "pad_bot", 76, 54, 54, 0, 60,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
@@ -224,7 +229,7 @@ color_t colors_gx[] = {
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "but_bot", 74, 74, 74, 0, 74,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "lcd_col", 202, 221, 92, 255, 205,
+  { "lcd_col", 219, 219, 219, 255, 205,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "pix_col", 0, 0, 128, 0, 20,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
@@ -2111,11 +2116,12 @@ CreateBezel(unsigned int width, unsigned int height, unsigned int offset_y, unsi
   return;
 }
 
+
+int cut;
 void
 DrawMore(unsigned int w, unsigned int h, unsigned int offset_y, unsigned int offset_x, keypad_t *keypad)
 {
   Pixmap pix;
-  int cut;
   int x, y;
 
   int display_height = DISPLAY_HEIGHT;
@@ -2832,6 +2838,7 @@ char **argv;
   {
     case DirectColor:
       direct_color = 1;
+      break;
     case GrayScale:
     case PseudoColor:
       dynamic_color = 1;
@@ -3064,13 +3071,13 @@ char **argv;
 
 
   if (netbook) {
-      int cut = buttons[BUTTON_MTH].y - (small_ascent + small_descent + 6 + 4);
+      cut = buttons[BUTTON_MTH].y - (small_ascent + small_descent + 6 + 4);
       CreateBackground(width/2, height, width, height, &keypad);
       DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateBezel(width/2, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateKeypad(width, height, -cut, KEYBOARD_OFFSET_X, &keypad);
   } else {
-      int cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
+      cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
       CreateBackground(width, cut, width, height, &keypad);
       DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);

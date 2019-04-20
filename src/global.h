@@ -121,7 +121,16 @@
 #else
 #define HAVE_STDIO 1
 #endif
- 
+
+//czo
+#if defined(linux)
+#include <stdio.h>
+#include <stdlib.h>
+extern int      grantpt		__ProtoType__((int));
+extern int      unlockpt	__ProtoType__((int));
+extern int      ptsname_r       __ProtoType__((int, char *, size_t));
+#endif
+
 #ifndef HAVE_STDIO
 #include <stdio.h>
 #include <sys/time.h>

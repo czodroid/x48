@@ -139,9 +139,9 @@ static void do_rstk __ProtoType__ ((int, char **));
 
 struct cmd
   {
-    char *name;
+    const char *name;
     void (*func) __ProtoType__ ((int, char **));
-    char *help;
+    const char *help;
   }
 
 cmd_tbl[] =
@@ -390,7 +390,7 @@ read_str(str, n, fp)
 #ifndef HAVE_READLINE
 char *
 #ifdef __FunctionProto__
-readline(char *prompt)
+readline(const char *prompt)
 #else
 readline(prompt)
 	char *prompt;
@@ -410,7 +410,7 @@ readline(prompt)
       char *str;
 
       len = strlen(nrl);
-      str = malloc(len + 1);
+      str = (char*)malloc(len + 1);
 
       if (nrl[len-1] == '\n')
         {
@@ -1162,7 +1162,7 @@ dump_hst ()
           saturn.SB ? "SB " : "-- ", saturn.XM ? "XM" : "--");
 }
 
-static char *mctl_str_gx[] = {
+static const char *mctl_str_gx[] = {
   "MMIO       ",
   "SysRAM     ",
   "Bank Switch",
@@ -1171,7 +1171,7 @@ static char *mctl_str_gx[] = {
   "SysROM     "
 };
 
-static char *mctl_str_sx[] = {
+static const char *mctl_str_sx[] = {
   "MMIO  ",
   "SysRAM",
   "Port 1",
@@ -1572,20 +1572,20 @@ get_stack ()
     {
       load_addr(&ent, sp, 5);
       decode_rpl_obj_2(ent, typ, dat);
-      printf("%d %p -> [%s] %s\n", i, ent, typ, dat);
+      printf("%d %ld -> [%s] %s\n", n, ent, typ, dat);
     }
 
   for (i = 0; i < n; i++)
     {
       load_addr(&ent, sp + (5 * i), 5);
       decode_rpl_obj_2(ent, typ, dat);
-      printf("%d %p -> [%s] %s\n", i, ent, typ, dat);
+      printf("%d %ld -> [%s] %s\n", i, ent, typ, dat);
     }
 
   saturn.mem_cntl[1].config[0] = ram_base;
   saturn.mem_cntl[1].config[1] = ram_mask;
 
-  return;
+  return 0;
 }
 
 static void
@@ -1844,7 +1844,7 @@ debug ()
       if (enter_debugger & USER_INTERRUPT)
         if (verbose)
           printf ("%s: user interrupt (SIGINT) ignored\n", progname);
-        exit_x48(1);
+      exit_x48(1);
       if (enter_debugger & BREAKPOINT_HIT)
         if (verbose)
           printf ("%s: breakpoint hit at 0x%.5lX ignored\n",

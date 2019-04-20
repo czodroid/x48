@@ -361,7 +361,7 @@ unsigned int *depth;
   else if (!strcmp (s, "pseudocolor")) vclass = PseudoColor;
   else if (!strcmp (s, "directcolor")) vclass = DirectColor;
   else if (1 == sscanf (s, " %d %c", &id, &c))   vclass = -2;
-  else if (1 == sscanf (s, " 0x%x %c", &id, &c)) vclass = -2;
+  else if (1 == sscanf (s, " 0x%x %c", (unsigned int*)&id, &c)) vclass = -2;
   else
     {
       fprintf (stderr, "%s: unrecognized visual \"%s\".\n", progname, s);

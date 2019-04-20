@@ -1,0 +1,62 @@
+# Filename: Makefile.linux
+# Copyright (C) 2014 Olivier Sirol <czo@free.fr>
+# License: GPL (http://www.gnu.org/copyleft/gpl.html)
+# Started: mai 2014
+# Last Change: jeudi 18 avril 2019, 22:31
+# Edit Time: 2:51:12
+# Description:
+#      Makefile:
+#      $@ Le nom de la cible
+#      $< Le nom de la première dépendance
+#      $^ La liste des dépendances
+#      $? La liste des dépendances plus récentes que la cible
+#      $* Le nom du fichier sans suffixe
+#
+# $Id: $
+#
+
+CC = gcc 
+CFLAGS = -Wall -Wextra -Wpedantic -Wno-unused-variable -Wno-missing-field-initializers -Wno-sign-compare -Wno-unused-parameter
+#CFLAGS = -Wall -Wextra -Wpedantic
+CFLAGS += -I ..
+LIBS += -lX11 -lXext -lhistory  -lreadline
+
+SRC = actions.c debugger.c device.c \
+      disasm.c emulate.c errors.c init.c \
+      lcd.c main.c memory.c options.c register.c \
+      resources.c romio.c rpl.c serial.c timer.c \
+      x48_x11.c
+
+#SRC= $(wildcard *.c)
+DEPS = $(wildcard *.c) $(wildcard *.h)
+
+
+OBJ  = $(SRC:.c=.o)
+EXEC = x48
+
+all: $(EXEC)
+	@echo "<- all done!"
+
+viewdeps: $(DEPS)
+	@echo $(DEPS)
+
+$(EXEC): $(OBJ)
+	$(CC) -o $@ $^ $(LIBS)
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+clean:
+	rm -f *.o
+	@echo "<- clean done!"
+
+realclean: clean
+	rm -f $(EXEC)
+	@echo "<- realclean done!"
+
+fclean: realclean
+
+re: realclean all
+
+.PHONY: all clean realclean fclean re
+

@@ -86,14 +86,14 @@ int *size;
     {
       *size = 2 * st.st_size;
     }
-  else if (four[1] = 0x49)
+  else if (four[1] == 0x49)
     {
       fprintf(stderr, "%s is an HP49 ROM\n", name);
       *size = 2 * st.st_size;
     }
   else if (four[0])
     {
-      printf("%d\n", st.st_size);
+      printf("%ld\n", st.st_size);
       *size = st.st_size;
     }
   else

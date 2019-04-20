@@ -148,7 +148,6 @@ int argc;
 char **argv;
 #endif
 {
-  char *name;
   sigset_t set;
   struct sigaction sa;
   long flags;
@@ -156,7 +155,6 @@ char **argv;
 
   setlocale(LC_ALL, "C");
 
-  name = (char *)0;
   /*
    *  Get the name we are called.
    */

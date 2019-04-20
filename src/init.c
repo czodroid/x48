@@ -1063,7 +1063,7 @@ const char *fname;
 {
   int ram_size;
 
-  if (!read_rom_file(romFileName, &saturn.rom, &rom_size))
+  if (!read_rom_file(romFileName, &saturn.rom, (int *)&rom_size))
     return 0;
   dev_memory_init();
 
@@ -1161,7 +1161,7 @@ read_files()
   saturn.rom = (word_4 *)NULL;
   strcpy(fnam, path);
   strcat(fnam, "rom");
-  if (!read_rom_file(fnam, &saturn.rom, &rom_size))
+  if (!read_rom_file(fnam, &saturn.rom, (int *)&rom_size))
     return 0;
 
   rom_is_new = 0;

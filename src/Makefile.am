@@ -61,7 +61,7 @@ man1_MANS = x48.man
 
 EXTRA_DIST = $(man1_MANS) X48.ad
 
-INCLUDES = $(X_CFLAGS)
+AM_CPPFLAGS = $(X_CFLAGS)
 
 x48_LDADD = $(X_LIBS)
 

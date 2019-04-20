@@ -56,7 +56,7 @@
 
 int disassembler_mode = CLASS_MNEMONICS;
 
-char *mode_name[] =
+const char *mode_name[] =
 {
   "HP",
   "class"
@@ -277,11 +277,11 @@ read_int (addr, n)
 
 char *
 #ifdef __FunctionProto__
-append_str (char *buf, char *str)
+append_str (char *buf, const char *str)
 #else
 append_str (buf, str)
      char *buf;
-     char *str;
+     const char *str;
 #endif
 {
   while ((*buf = *str++))
@@ -825,7 +825,7 @@ disasm_8 (addr, out)
     {
     case 0:
       n = read_nibble ((*addr)++);
-      if (NULL != (p = in_str_80[n + 16 * disassembler_mode]))
+      if (NULL != (p = (char*)in_str_80[n + 16 * disassembler_mode]))
 	{
 	  p = append_str (out, p);
 	  return p;
@@ -834,7 +834,7 @@ disasm_8 (addr, out)
 	{
 	case 8:
 	  fn = read_nibble ((*addr)++);
-	  if (NULL != (p = in_str_808[fn + 16 * disassembler_mode]))
+	  if (NULL != (p = (char*)in_str_808[fn + 16 * disassembler_mode]))
 	    {
 	      p = append_str (out, p);
 	      return p;
