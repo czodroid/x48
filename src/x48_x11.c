@@ -168,53 +168,49 @@ keypad_t  keypad;
 color_t  *colors;
 
 //czo
-//  { "lcd_col", 202, 221, 92, 255, 205,
-//  { "pad", 90, 64, 64, 0, 73,
-//  { "disp_pad", 124, 94, 67, 0, 99,
 
 color_t colors_sx[] = {
-  { "white", 255, 255, 255, 255, 255,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "left", 255, 166, 0, 255, 230,
-     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "right", 0, 210, 255, 255, 169,
-     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "but_top", 109, 93, 93, 0, 91,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "button", 90, 77, 77, 0, 81,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "but_bot", 76, 65, 65, 0, 69,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "lcd_col", 219, 219, 219, 255, 205,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "pix_col", 0, 0, 128, 0, 20,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "pad_top", 109, 78, 78, 0, 88,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "pad", 90, 70, 70, 0, 73,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "pad_bot", 76, 54, 54, 0, 60,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "disp_pad_top", 155, 118, 84, 0, 124,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "disp_pad", 124, 94, 67, 0, 99,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "disp_pad_bot", 100, 75, 53, 0, 79,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "logo", 204, 169, 107, 255, 172,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "logo_back", 64, 64, 64, 0, 65,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "label", 202, 184, 144, 255, 185,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "frame", 0, 0, 0, 255, 0,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "underlay", 60, 42, 42, 0, 48,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "black", 0, 0, 0, 0, 0,
-    { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { 0 }
-};
+  {"white", 209, 206, 190, 255, 255,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"left", 219, 115, 84, 255, 230,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"right", 139, 178, 212, 255, 169,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"but_top", 40, 36, 31, 0, 91,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"button", 11, 5, 1, 0, 81,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"but_bot", 1, 1, 2, 0, 69,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"lcd_col", 189, 195, 165, 255, 205,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"pix_col", 128, 128, 128, 0, 20,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"pad_top", 43, 42, 37, 0, 88,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"pad", 43, 42, 37, 0, 73,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"pad_bot", 43, 42, 37, 0, 60,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"disp_pad_top", 57, 56, 51, 0, 124,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"disp_pad", 57, 56, 51, 0, 99,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"disp_pad_bot", 57, 56, 51, 0, 79,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"logo", 204, 169, 107, 255, 172,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"logo_back", 64, 64, 64, 0, 65,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"label", 202, 184, 144, 255, 185,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"frame", 0, 0, 0, 255, 0,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"underlay", 56, 54, 42, 0, 48,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+  {"black", 0, 0, 0, 0, 0,
+    {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
+    {0}};
 
 color_t colors_gx[] = {
   { "white", 255, 255, 255, 255, 255,
@@ -229,7 +225,7 @@ color_t colors_gx[] = {
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "but_bot", 74, 74, 74, 0, 74,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
-  { "lcd_col", 219, 219, 219, 255, 205,
+  { "lcd_col", 202, 221, 92, 255, 205,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
   { "pix_col", 0, 0, 128, 0, 20,
     { 0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0 } },
@@ -902,7 +898,8 @@ int contrast;
     default:
       r = (0x13 - contrast) * (colors[LCD].r / 0x10);
       g = (0x13 - contrast) * (colors[LCD].g / 0x10);
-      b = 128 - ((0x13 - contrast) * ((128 - colors[LCD].b) / 0x10));
+      b = (0x13 - contrast) * (colors[LCD].b / 0x10);
+      // b = 128 - ((0x13 - contrast) * ((128 - colors[LCD].b) / 0x10));
       colors[PIXEL].xcolor.red = r << 8;
       colors[PIXEL].xcolor.green = g << 8;
       colors[PIXEL].xcolor.blue = b << 8;
@@ -2808,7 +2805,7 @@ char **argv;
       colors = colors_sx;
       icon_maps = icon_maps_sx;
     }
-  
+
   if (netbook) {
       int i;
       for (i = 0; i < 6; i++) {
