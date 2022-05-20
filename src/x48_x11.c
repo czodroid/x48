@@ -206,7 +206,7 @@ color_t colors_sx[] = {
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
   {"frame", 0, 0, 0, 255, 0,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
-  {"underlay", 56, 54, 42, 0, 48,
+  {"underlay", 33, 32, 27, 0, 48,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
   {"black", 0, 0, 0, 0, 0,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
