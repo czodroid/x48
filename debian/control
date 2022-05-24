@@ -1,7 +1,7 @@
 Source: x48
 Section: x11
 Priority: optional
-Maintainer: G. Allen Morris III <gam3@gam3.net>
+Maintainer: czo <czo@free.fr>
 Build-Depends: debhelper (>= 5.0.0), libx11-dev, libxext-dev, pkg-config, libxt-dev, autoconf
 Standards-Version: 3.8.2
 
