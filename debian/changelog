@@ -1,8 +1,11 @@
 x48 (0.6.5) unstable; urgency=low
 
   * New release
+  * New colors for HP48sx
+  * Fix bugs for newer gcc
+  * Corrected some files
 
- -- Czo <czo@free.fr>  Fri, 19 Apr 2019 22:43:23 -0200
+ -- Czo <czo@free.fr>  Tue, 24 May 2022 19:46:01 -0200
 
 
 x48 (0.6.4) unstable; urgency=low
