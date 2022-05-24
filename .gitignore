@@ -1,4 +1,3 @@
-Makefile.in
 aclocal.m4
 autom4te.cache/
 compile
@@ -10,5 +9,14 @@ depcomp
 install-sh
 members
 missing
+Makefile.in
 romdump/Makefile.in
 src/Makefile.in
+build-stamp
+configure-stamp
+debian/.debhelper/
+debian/files
+debian/x48.debhelper.log
+debian/x48.substvars
+debian/x48/
+
