@@ -170,7 +170,7 @@ color_t  *colors;
 //czo
 
 color_t colors_sx[] = {
-  {"white", 209, 206, 190, 255, 255,
+  {"white", 189, 195, 165, 255, 255,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
   {"left", 219, 115, 84, 255, 230,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
@@ -1738,6 +1738,7 @@ keypad_t *keypad;
     if (buttons[i].sub != (char *)0) {
 
       XSetBackground(dpy, gc, pixel);
+      //czo
       XSetForeground(dpy, gc, COLOR(WHITE));
 
       x = offset_x + buttons[i].x + (1 + buttons[i].w -
