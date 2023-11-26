@@ -1,9 +1,10 @@
 x48 for Debian
 --------------
 
+This is an emulator of the HP 48 SX calculator.
+Source: https://github.com/czodroid/x48
+Romdumps are available from https://github.com/czodroid/x48/tree/main/48ROM
+
 This program requires you to create a .hp48 directory in your home
 directory, and put a rom dump into that directory.
-
-Rom dumps are available from https://github.com/czodroid/x48/tree/main/48ROM
-
 
