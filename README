@@ -1,7 +1,7 @@
 x48 -- HP48 CPU emulator
 ========================
 
-This is x48, an HP48 CPU emulator. This is Version 0.6.5
+This is x48, an HP48 CPU emulator. This is Version 0.7.0 mofified by czo.
 
 if the 'LCD' is scrambled, you might try running x48 in one of the 3 ways below
 to see if that will solve the problem.

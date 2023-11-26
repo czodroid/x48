@@ -1,3 +1,6 @@
+2023-11-26 Czo <czo@free.fr> release 0.7.0
+    * New display
+
 2022-05-24 Czo <czo@free.fr> release 0.6.5
     * New colors for HP48sx
     * Fix bugs for newer gcc
@@ -28,12 +31,12 @@
 
 2006-04-20 "G. Allen Morris III" <gam3@gam3.net>
 	* Added simple paste feature
-	* Repaired debugger non-readline input 
+	* Repaired debugger non-readline input
 	* Changed from building with Imakefile to using GNU autoconfig
 
 2005-03-20 "G. Allen Morris III" <gam3@gam3.net>
 	* added equal key for + and Meta Keys for Alpha
-	* applied a different fix for the arrow repeat key bug 
+	* applied a different fix for the arrow repeat key bug
 	* fixed a bug in the timer one logic.  The cursor now flashes on input.
 
 2005-03-20 "G. Allen Morris III" <gam3@gam3.net>

@@ -1,3 +1,9 @@
+x48 (0.7.0) unstable; urgency=low
+
+  * New display
+
+ -- Czo <czo@free.fr>  Tue, 24 May 2022 19:46:01 -0200
+
 x48 (0.6.5) unstable; urgency=low
 
   * New release
@@ -6,7 +12,6 @@ x48 (0.6.5) unstable; urgency=low
   * Corrected some files
 
  -- Czo <czo@free.fr>  Tue, 24 May 2022 19:46:01 -0200
-
 
 x48 (0.6.4) unstable; urgency=low
 
@@ -46,7 +51,7 @@ x48 (0.6.1) unstable; urgency=low
 x48 (0.6.0) unstable; urgency=low
 
   * Added simple paste feature
-  * Repaired debugger non-readline input 
+  * Repaired debugger non-readline input
   * Changed from building with Imakefile to using GNU autoconfig
 
  -- G. Allen Morris III <gam3@gam3.net>  Thu, 20 Apr 2006 08:09:01 -0400

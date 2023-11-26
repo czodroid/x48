@@ -2,7 +2,7 @@ Name:		x48
 Summary:	HP 48 SX emulator
 Version:	@VERSION@
 Release:	0
-License:	GPL
+License: GPL-2.0 (http://www.gnu.org/copyleft)
 Group:		Sciences/Mathematics
 URL:		http://x48.berlios.de/
 Source0:	http://downloads.sourceforge.net/project/x48.berlios/%{name}-%{version}.tar.bz2
@@ -71,5 +71,5 @@ make DESTDIR=$RPM_BUILD_ROOT install
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
-* Mon Aug 06 2019 <czo@free.fr> - 0.6.5
+* 2023-11-26 <czo@free.fr> - 0.7.0
 - version update
