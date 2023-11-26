@@ -1,22 +1,21 @@
-Name:		x48
-Summary:	HP 48 SX emulator
-Version:	@VERSION@
-Release:	0
+Name:               x48
+Summary:            HP 48 SX emulator
+Version:            @VERSION@
+Release:            0
 License: GPL-2.0 (http://www.gnu.org/copyleft)
-Group:		Sciences/Mathematics
-URL:		http://x48.berlios.de/
-Source0:	http://downloads.sourceforge.net/project/x48.berlios/%{name}-%{version}.tar.bz2
-Source1:    x48.png
-BuildRequires:	readline-devel
-BuildRequires:	libX11-devel libXt-devel
-#BuildRequires:	x11-util-cf-files
-BuildRequires:	ncurses-devel
-Requires:  	readline
-#Requires:  	x48-data
+Group:              Sciences/Mathematics
+URL:                https://github.com/czodroid/x48
+Source0:            https://github.com/czodroid/x48/archive/refs/tags/0.7.0.tar.gz
+Source1:            x48.png
+BuildRequires:      readline-devel
+BuildRequires:      libX11-devel libXt-devel
+BuildRequires:      ncurses-devel
+Requires:           readline
 
 %description
-This is an emulator of the HP 48 SX and GX calculator.
-Romdumps are available from http://x48.berlios.de/
+This is an emulator of the HP 48 SX calculator.
+Source: https://github.com/czodroid/x48
+Romdumps are available from https://github.com/czodroid/x48/tree/main/48ROM
 
 %prep
 %setup -q -c
@@ -33,12 +32,13 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications/
 
 cat << EOF > $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
 [Desktop Entry]
-Type=Application
-Exec=x48 -rom /usr/share/x48/rom
 Name=x48
-Icon=x48
+Exec=x48
+Type=Application
 Comment=HP48 Emulator
-Categories=Office;
+Icon=x48
+StartupNotify=true
+StartupWMClass=x48
 EOF
 
 install -Dm644 %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/pixmaps/%{name}.png
