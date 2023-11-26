@@ -1316,7 +1316,7 @@ XFontStruct *f_small, *f_med, *f_big;
 			buttons[i].w, buttons[i].h, 0,
 			COLOR(BLACK), pixel);
 
-    XDefineCursor(dpy, buttons[i].xwin, XCreateFontCursor(dpy, XC_hand1));
+    // XDefineCursor(dpy, buttons[i].xwin, XCreateFontCursor(dpy, XC_hand1));
 
     xswa.event_mask = LeaveWindowMask | ExposureMask | StructureNotifyMask;
     xswa.backing_store = Always;
@@ -2590,7 +2590,8 @@ CreateDispWindow()
   disp.h = DISPLAY_HEIGHT;
 
   disp.win = XCreateSimpleWindow(dpy, mainW,
-			(int)DISPLAY_OFFSET_X, (int)DISPLAY_OFFSET_Y,
+			//(int)DISPLAY_OFFSET_X, (int)DISPLAY_OFFSET_Y,
+      0,0,
 			disp.w, disp.h, 0,
 			COLOR(BLACK), COLOR(LCD));
 
@@ -2897,7 +2898,9 @@ char **argv;
   if (netbook) {
       height = KEYBOARD_HEIGHT;
   } else {
-      height = DISPLAY_OFFSET_Y + DISPLAY_HEIGHT + DISP_KBD_SKIP + KEYBOARD_HEIGHT + BOTTOM_SKIP;
+      // height = DISPLAY_OFFSET_Y + DISPLAY_HEIGHT + DISP_KBD_SKIP + KEYBOARD_HEIGHT + BOTTOM_SKIP;
+      //czo
+      height = DISPLAY_HEIGHT + KEYBOARD_HEIGHT + BOTTOM_SKIP;
   }
 
   mainW = XCreateWindow(dpy, RootWindow(dpy, screen),
@@ -3066,19 +3069,21 @@ char **argv;
 
   keypad.pixmap = XCreatePixmap(dpy, mainW, width, height, depth);
 
-
   if (netbook) {
       cut = buttons[BUTTON_MTH].y - (small_ascent + small_descent + 6 + 4);
       CreateBackground(width/2, height, width, height, &keypad);
-      DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      CreateBezel(width/2, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //CreateBezel(width/2, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateKeypad(width, height, -cut, KEYBOARD_OFFSET_X, &keypad);
   } else {
-      cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
+      // cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
+      cut = buttons[BUTTON_MTH].y + DISPLAY_HEIGHT -10;
       CreateBackground(width, cut, width, height, &keypad);
-      DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      CreateKeypad(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //CreateKeypad(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //czo
+      CreateKeypad(width, height, DISPLAY_HEIGHT +10, KEYBOARD_OFFSET_X, &keypad);
   }
 
   /*
