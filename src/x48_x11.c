@@ -2879,8 +2879,8 @@ char **argv;
         sprintf(errbuf, "malloc failed.\n");
         fatal_exit();
       }
-      sprintf(name, "%s-%d.%d.%d", progname, saturn.version[0],
-              saturn.version[1], saturn.version[2]);
+      // sprintf(name, "%s-%d.%d.%d", progname, saturn.version[0],saturn.version[1], saturn.version[2]);
+      sprintf(name, "%s", progname);
     }
 
   if(!XStringListToTextProperty(&name, 1, &wname))
