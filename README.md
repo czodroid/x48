@@ -1,7 +1,31 @@
 x48 -- HP48 CPU emulator
 ========================
 
-This is x48, an HP48 CPU emulator. This is Version 0.7.0 mofified by czo.
+This is x48, an HP48 CPU emulator.
+
+This is Version 0.7.0 mofified by czo.
+
+
+![x48sx](x48sx.png)
+
+
+for version 0.7.0
+=================
+
+What's new:
+
+    - Implemented new design
+
+    - New colors for HP48sx
+
+    - Fix bugs for newer gcc
+
+    - Corrected some C files
+
+
+
+for version 0.4.0
+=================
 
 if the 'LCD' is scrambled, you might try running x48 in one of the 3 ways below
 to see if that will solve the problem.
@@ -10,11 +34,6 @@ to see if that will solve the problem.
 2. put 'x48*useXShm: False' in you .Xdefaults file (man xrdb)
 3. run './configure --disable-shm' to build x48 without the Shared memory extention.
 
-If it does please leave a bug report at https://developer.berlios.de/bugs/?group_id=3335
-
-======
-
-for version 0.4.0
 
 What's new:
 

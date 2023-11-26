@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=x48
-Exec=/tank/data/czo/etc/hp48/x48
-Type=Application
-StartupNotify=true
-Icon=/tank/data/czo/etc/hp48/x48.png
-StartupWMClass=x48
