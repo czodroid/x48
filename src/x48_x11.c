@@ -2589,9 +2589,10 @@ CreateDispWindow()
   disp.w = DISPLAY_WIDTH;
   disp.h = DISPLAY_HEIGHT;
 
+// czo
   disp.win = XCreateSimpleWindow(dpy, mainW,
 			//(int)DISPLAY_OFFSET_X, (int)DISPLAY_OFFSET_Y,
-      0,0,
+      27,20,
 			disp.w, disp.h, 0,
 			COLOR(BLACK), COLOR(LCD));
 
@@ -2900,7 +2901,7 @@ char **argv;
   } else {
       // height = DISPLAY_OFFSET_Y + DISPLAY_HEIGHT + DISP_KBD_SKIP + KEYBOARD_HEIGHT + BOTTOM_SKIP;
       //czo
-      height = DISPLAY_HEIGHT + KEYBOARD_HEIGHT + BOTTOM_SKIP;
+      height = DISPLAY_HEIGHT + KEYBOARD_HEIGHT + BOTTOM_SKIP + 20;
   }
 
   mainW = XCreateWindow(dpy, RootWindow(dpy, screen),
@@ -3077,13 +3078,13 @@ char **argv;
       CreateKeypad(width, height, -cut, KEYBOARD_OFFSET_X, &keypad);
   } else {
       // cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
-      cut = buttons[BUTTON_MTH].y + DISPLAY_HEIGHT -10;
+      cut = buttons[BUTTON_MTH].y + DISPLAY_HEIGHT +9;
       CreateBackground(width, cut, width, height, &keypad);
       //DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       //CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       //CreateKeypad(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       //czo
-      CreateKeypad(width, height, DISPLAY_HEIGHT +10, KEYBOARD_OFFSET_X, &keypad);
+      CreateKeypad(width, height, DISPLAY_HEIGHT +30, KEYBOARD_OFFSET_X, &keypad);
   }
 
   /*
