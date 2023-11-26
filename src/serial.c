@@ -114,7 +114,10 @@ update_connection_display()
       if (ir_name) free(ir_name);
       ir_name = (char *)0;
     }
-  ShowConnections(wire_name, ir_name);
+  //ShowConnections(wire_name, ir_name);
+  fprintf(stderr, "%s: wire: %s\n", progname, wire_name ? wire_name : "none");
+  fprintf(stderr, "%s: IR: %s\n", progname, ir_name ? ir_name : "none");
+
 }
 
 int

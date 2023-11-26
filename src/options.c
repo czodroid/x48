@@ -58,7 +58,7 @@ usage()
 #endif
 {
   fprintf(stdout, "\n\
-x48 Version %d.%d.%d, Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>.\n\
+x48 Version %d.%d.%d, Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>, modified by czo.\n\
 \n\
 usage:\n\t%s [-options ...]\n\
 \n\
@@ -110,7 +110,7 @@ show_version()
 #endif
 {
   fprintf(stdout, "\n\
-%s Version %d.%d.%d, x48 is Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>.\n\
+%s Version %d.%d.%d, x48 is Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>, modified by czo.\n\
 Compiled on %s by <%s> #%d\n\n",
 	 progname, VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL,
          COMPILE_TIME, COMPILE_BY, COMPILE_VERSION);

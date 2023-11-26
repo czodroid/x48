@@ -167,10 +167,8 @@ typedef struct keypad_t {
 keypad_t  keypad;
 color_t  *colors;
 
-//czo
-
 color_t colors_sx[] = {
-  {"white", 209, 206, 190, 255, 255,
+  {"white", 189, 195, 165, 255, 255,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
   {"left", 219, 115, 84, 255, 230,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
@@ -659,10 +657,10 @@ icon_map_t icon_maps_gx[] = {
 #define KEYBOARD_HEIGHT	(buttons[LAST_BUTTON].y + buttons[LAST_BUTTON].h)
 #define KEYBOARD_WIDTH  (buttons[LAST_BUTTON].x + buttons[LAST_BUTTON].w)
 
-#define TOP_SKIP		65
-#define SIDE_SKIP		20
-#define BOTTOM_SKIP		25
-#define DISP_KBD_SKIP		65
+#define TOP_SKIP		10
+#define SIDE_SKIP		10
+#define BOTTOM_SKIP		15
+#define DISP_KBD_SKIP		10
 
 #define DISPLAY_WIDTH		(264 + 8)
 #define DISPLAY_HEIGHT		(128 + 16 + 8)
@@ -1316,7 +1314,7 @@ XFontStruct *f_small, *f_med, *f_big;
 			buttons[i].w, buttons[i].h, 0,
 			COLOR(BLACK), pixel);
 
-    XDefineCursor(dpy, buttons[i].xwin, XCreateFontCursor(dpy, XC_hand1));
+    // XDefineCursor(dpy, buttons[i].xwin, XCreateFontCursor(dpy, XC_hand1));
 
     xswa.event_mask = LeaveWindowMask | ExposureMask | StructureNotifyMask;
     xswa.backing_store = Always;
@@ -2877,8 +2875,8 @@ char **argv;
         sprintf(errbuf, "malloc failed.\n");
         fatal_exit();
       }
-      sprintf(name, "%s-%d.%d.%d", progname, saturn.version[0],
-              saturn.version[1], saturn.version[2]);
+      // sprintf(name, "%s-%d.%d.%d", progname, saturn.version[0],saturn.version[1], saturn.version[2]);
+      sprintf(name, "%s", progname);
     }
 
   if(!XStringListToTextProperty(&name, 1, &wname))
@@ -3066,18 +3064,17 @@ char **argv;
 
   keypad.pixmap = XCreatePixmap(dpy, mainW, width, height, depth);
 
-
   if (netbook) {
       cut = buttons[BUTTON_MTH].y - (small_ascent + small_descent + 6 + 4);
       CreateBackground(width/2, height, width, height, &keypad);
-      DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      CreateBezel(width/2, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //CreateBezel(width/2, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateKeypad(width, height, -cut, KEYBOARD_OFFSET_X, &keypad);
   } else {
       cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
       CreateBackground(width, cut, width, height, &keypad);
-      DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
+      //CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateKeypad(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
   }
 
