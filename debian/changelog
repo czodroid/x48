@@ -2,7 +2,7 @@ x48 (0.7.0) unstable; urgency=low
 
   * New display
 
- -- Czo <czo@free.fr>  Sun Nov 26 16:21:08 CET 2023
+ --  Olivier Sirol <czo@free.fr>  Sun, 26 Nov 2023 16:21:08 -0200
 
 x48 (0.6.5) unstable; urgency=low
 
@@ -11,7 +11,7 @@ x48 (0.6.5) unstable; urgency=low
   * Fix bugs for newer gcc
   * Corrected some files
 
- -- Czo <czo@free.fr>  Tue, 24 May 2022 19:46:01 -0200
+ -- Olivier Sirol <czo@free.fr>  Tue, 24 May 2022 19:46:01 -0200
 
 x48 (0.6.4) unstable; urgency=low
 

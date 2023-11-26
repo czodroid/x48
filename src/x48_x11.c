@@ -167,8 +167,6 @@ typedef struct keypad_t {
 keypad_t  keypad;
 color_t  *colors;
 
-//czo
-
 color_t colors_sx[] = {
   {"white", 189, 195, 165, 255, 255,
     {0, 0, 0, 0, DoRed | DoGreen | DoBlue, 0}},
@@ -659,10 +657,10 @@ icon_map_t icon_maps_gx[] = {
 #define KEYBOARD_HEIGHT	(buttons[LAST_BUTTON].y + buttons[LAST_BUTTON].h)
 #define KEYBOARD_WIDTH  (buttons[LAST_BUTTON].x + buttons[LAST_BUTTON].w)
 
-#define TOP_SKIP		65
-#define SIDE_SKIP		20
-#define BOTTOM_SKIP		25
-#define DISP_KBD_SKIP		65
+#define TOP_SKIP		10
+#define SIDE_SKIP		10
+#define BOTTOM_SKIP		15
+#define DISP_KBD_SKIP		10
 
 #define DISPLAY_WIDTH		(264 + 8)
 #define DISPLAY_HEIGHT		(128 + 16 + 8)
@@ -1738,7 +1736,6 @@ keypad_t *keypad;
     if (buttons[i].sub != (char *)0) {
 
       XSetBackground(dpy, gc, pixel);
-      //czo
       XSetForeground(dpy, gc, COLOR(WHITE));
 
       x = offset_x + buttons[i].x + (1 + buttons[i].w -
@@ -2590,10 +2587,8 @@ CreateDispWindow()
   disp.w = DISPLAY_WIDTH;
   disp.h = DISPLAY_HEIGHT;
 
-// czo
   disp.win = XCreateSimpleWindow(dpy, mainW,
-			//(int)DISPLAY_OFFSET_X, (int)DISPLAY_OFFSET_Y,
-      27,20,
+			(int)DISPLAY_OFFSET_X, (int)DISPLAY_OFFSET_Y,
 			disp.w, disp.h, 0,
 			COLOR(BLACK), COLOR(LCD));
 
@@ -2900,9 +2895,7 @@ char **argv;
   if (netbook) {
       height = KEYBOARD_HEIGHT;
   } else {
-      // height = DISPLAY_OFFSET_Y + DISPLAY_HEIGHT + DISP_KBD_SKIP + KEYBOARD_HEIGHT + BOTTOM_SKIP;
-      //czo
-      height = DISPLAY_HEIGHT + KEYBOARD_HEIGHT + BOTTOM_SKIP + 20;
+        height = DISPLAY_OFFSET_Y + DISPLAY_HEIGHT + DISP_KBD_SKIP + KEYBOARD_HEIGHT + BOTTOM_SKIP;
   }
 
   mainW = XCreateWindow(dpy, RootWindow(dpy, screen),
@@ -3078,14 +3071,11 @@ char **argv;
       //CreateBezel(width/2, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       CreateKeypad(width, height, -cut, KEYBOARD_OFFSET_X, &keypad);
   } else {
-      // cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
-      cut = buttons[BUTTON_MTH].y + DISPLAY_HEIGHT +9;
+      cut = buttons[BUTTON_MTH].y + KEYBOARD_OFFSET_Y - 19;
       CreateBackground(width, cut, width, height, &keypad);
       //DrawMore(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
       //CreateBezel(width, cut, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      //CreateKeypad(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
-      //czo
-      CreateKeypad(width, height, DISPLAY_HEIGHT +30, KEYBOARD_OFFSET_X, &keypad);
+      CreateKeypad(width, height, KEYBOARD_OFFSET_Y, KEYBOARD_OFFSET_X, &keypad);
   }
 
   /*
