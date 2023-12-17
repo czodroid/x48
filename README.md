@@ -23,6 +23,8 @@ What's new:
     - Corrected some C files
 
 
+debian compile:
+    dpkg-buildpackage -b -uc -us
 
 for version 0.4
 =================
