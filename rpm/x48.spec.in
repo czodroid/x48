@@ -5,7 +5,7 @@ Release:            0
 License: GPL-2.0 (http://www.gnu.org/copyleft)
 Group:              Sciences/Mathematics
 URL:                https://github.com/czodroid/x48
-Source0:            https://github.com/czodroid/x48/archive/refs/tags/0.7.0.tar.gz
+Source0:            https://github.com/czodroid/x48/archive/refs/tags/0.7.1.tar.gz
 Source1:            x48.png
 BuildRequires:      readline-devel
 BuildRequires:      libX11-devel libXt-devel
@@ -71,5 +71,9 @@ make DESTDIR=$RPM_BUILD_ROOT install
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Sun Dec 17 2023 <czo@free.fr> - 0.7.1
+- version update, new colors
 * Sun Nov 26 2023 <czo@free.fr> - 0.7.0
-- version update
+- version update, change display
+* Sun May 24 2023 <czo@free.fr> - 0.6.5
+- version update, fix bugs for newer gcc, new colors for HP48sx
