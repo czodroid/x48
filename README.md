@@ -3,20 +3,20 @@ x48 -- HP48 CPU emulator
 
 This is x48, an HP48 CPU emulator.
 
-This is Version 0.7.0 mofified by czo.
+This is Version 0.7.1 mofified by czo.
 
 
 ![x48sx](x48sx.png)
 
 
-for version 0.7.0
+for version 0.7
 =================
 
 What's new:
 
     - Implemented new design
 
-    - New colors for HP48sx
+    - New colors for HP48sx and HP48gx
 
     - Fix bugs for newer gcc
 
@@ -24,7 +24,7 @@ What's new:
 
 
 
-for version 0.4.0
+for version 0.4
 =================
 
 if the 'LCD' is scrambled, you might try running x48 in one of the 3 ways below
