@@ -82,12 +82,23 @@ get_resources(void)
 get_resources()
 #endif
 {
-  if (get_boolean_resource("printVersion", "PrintVersion"))
+  int	doexit=0;
+
+  if (get_boolean_resource("printVersion", "PrintVersion")) {
     show_version();
-  if (get_boolean_resource("printCopyright", "PrintCopyright"))
+    doexit=1;
+    }
+  if (get_boolean_resource("printCopyright", "PrintCopyright")) {
     show_copyright();
-  if (get_boolean_resource("printWarranty", "PrintWarranty"))
+    doexit=1;
+    }
+  if (get_boolean_resource("printWarranty", "PrintWarranty")) {
     show_warranty();
+    doexit=1;
+    }
+
+  if (doexit)
+    exit (1);
 
   verbose = get_boolean_resource("verbose", "Verbose");
   quiet = get_boolean_resource("quiet", "Quiet");

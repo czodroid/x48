@@ -57,15 +57,13 @@ usage(void)
 usage()
 #endif
 {
-  fprintf(stdout, "\n\
-x48 Version %d.%d.%d, Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>, modified by czo.\n\
-\n\
+  fprintf(stdout, "\
 usage:\n\t%s [-options ...]\n\
 \n\
 where options include:\n\
     -help                        print out this message\n\
     -display    <displayname>    X server to contact\n\
-    -name	<string>         set application name to <string>\n\
+    -name       <string>         set application name to <string>\n\
     -title      <string>         set window title to <string>\n\
     -geometry   <geometry>       position of window\n\
     -iconGeom   <geometry>       position of icon window\n\
@@ -94,9 +92,9 @@ where options include:\n\
     -rom        <filename>       if initializing, read ROM from <filename>\n\
     -home       <directory>      use directory ~/<directory> to save x48 files\n\
     -xrm        <resource>       set Xresource <resource>\n\
-    -/+throttle			 turn off/on speed emulation\n\
-    -/+netbook			 turn off/on netbook layout\n\
-\n", VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL, progname);
+    -/+throttle                  turn off/on speed emulation\n\
+    -/+netbook                   turn off/on netbook layout\n\
+", progname);
 
   fflush(stdout);
   exit (1);
@@ -109,11 +107,12 @@ show_version(void)
 show_version()
 #endif
 {
-  fprintf(stdout, "\n\
-%s Version %d.%d.%d, x48 is Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>, modified by czo.\n\
-Compiled on %s by <%s> #%d\n\n",
-	 progname, VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL,
-         COMPILE_TIME, COMPILE_BY, COMPILE_VERSION);
+  fprintf(stdout, "\
+X48 Version %d.%d.%d, Copyright (c) 1994-2005 by Eddie C. Dost <ecd@dressler.de>\n\
+Modified by Czo since 2011.\n\
+Compiled on %s by <%s>\n",
+  VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL,
+  COMPILE_TIME, COMPILE_BY);
 }
 
 void
@@ -124,7 +123,7 @@ show_copyright()
 #endif
 {
   fprintf(stdout, "\n\
-                               COPYRIGHT\n\
+                              COPYRIGHT\n\
 \n\
 X48 is an Emulator/Debugger for the HP-48 Handheld Calculator.\n\
 Copyright (C) 1994 by Eddie C. Dost <ecd@dressler.de>.\n\
